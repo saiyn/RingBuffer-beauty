@@ -8,6 +8,7 @@ the idea behind this implement please refer to [this artical](http://saiyn.githu
 # HOW TO USE THE TEST
 
 make 
+
 ./cycbuf 127 /var/log/Xorg.0.log > new.log
 
 compare the two log to check the correctness of this implement
