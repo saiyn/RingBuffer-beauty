@@ -1,4 +1,6 @@
-
+#
+#saiyn
+#
 
 TARGET = cycbuf
 
@@ -18,10 +20,16 @@ all:$(TARGET)
 $(TARGET):$(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
+-include $(OBJS:.o=.d)
 
+%.d:%.c
+	$(CC) -MM $(CFLAGS) $< > $@
+
+%.o:%.c
+	$(CC) -c $(CFLAGS) $< -o $@
 
 
 clean:
-	rm $(TARGET) $(OBJS) -rf
+	rm $(TARGET) $(OBJS) *.d -rf
 	
 
